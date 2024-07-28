@@ -46,10 +46,12 @@ const setupApp = async () => {
         const predictedData = await prediction.data();
 
         const recommendedProducts = Array.from(predictedData)
-          .map((value, index) => ({ index, value }))
-          .sort((a, b) => b.value - a.value)
-          .slice(0, 5)
-          .map((item) => reverseProductMap[item.index]);
+          .map((value, index) => ({
+            ...reverseProductMap[index],
+            score: value,
+          }))
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 5);
 
         res.json({ recommendations: recommendedProducts });
       } catch (error) {

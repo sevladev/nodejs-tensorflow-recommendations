@@ -63,8 +63,8 @@ curl http://localhost:3000/recommend/{productId}
 ```json
 {
   "recommendations": [
-    { "id": 1, "name": "Product 1", "category": "Category A" },
-    { "id": 2, "name": "Product 2", "category": "Category B" }
+    { "id": 1, "name": "Product 1", "category": "Category A", "score": 0.5 },
+    { "id": 2, "name": "Product 2", "category": "Category B", "score": 1 }
   ]
 }
 ```
